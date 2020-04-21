@@ -147,7 +147,7 @@ button {
     letter-spacing: 0.1rem;
     word-spacing: 0.2rem;
     margin-top: 2%;
-    width: 14rem;
+    width: 15rem;
     height: 3.2rem;
 }
 
@@ -327,7 +327,8 @@ ul {
     }
     .bottom {
         margin-top: -4%;
-        width: 100%;
+        width: 95%;
+        left: -35px;
     }
     .list {
         top: 8px;
