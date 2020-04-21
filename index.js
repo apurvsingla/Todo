@@ -46,7 +46,7 @@ app.post('/create-note', function(req, res) {
         category: req.body.category
     }, function(err, newNote) {
         if (err) {
-            console.log('error in creating a contact!');
+            console.log('error in creating a Note!');
             return;
         }
         console.log('*****', newNote);
