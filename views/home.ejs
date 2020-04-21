@@ -16,7 +16,7 @@
 <body>
 
     <header>
-
+        <!-- navBar-->
         <div class="topnav" id="myTopnav">
             <a href="/" class="active">
                 <%= title %>
@@ -28,7 +28,10 @@
             </a>
         </div>
     </header>
+
+
     <main>
+        <!-- Project heading -->
         <div>
             <div id="heading">
                 <h2>
@@ -36,16 +39,20 @@
                 </h2>
                 <hr id="heading-rule">
             </div>
+
+            <!--Main Content for entering data-->
+
             <div id="main-content">
-
-
-
                 <form action="/create-note" method="post">
+
+                    <!--creating description-->
                     <div id="desc" class="common">
                         <label for="description">DESCRIPTION</label>
                         <input type="text" name="description" id="description" placeholder="What do you need to do?">
                     </div>
                     <hr>
+
+                    <!--creating Category-->
                     <div class="common flex">
 
                         <div class="cat">
@@ -60,6 +67,8 @@
                         </div>
 
                         <hr>
+
+                        <!--creating Date-->
                         <div id="dueDate">
                             <label for="due">DUE DATE</label>
                             <input type="date" name="date" id="due">
@@ -81,6 +90,8 @@
             </div>
         </div>
 
+
+        <!--Form Data-->
         <hr style="margin-top: 2%; opacity: 0.2; width: 96%;">
         <% for (let i of notes_list){ %>
             <ul>

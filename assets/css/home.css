@@ -97,6 +97,9 @@ body {
     display: flex;
 }
 
+
+/*for all input and select tags*/
+
 input,
 select {
     display: block;
@@ -112,6 +115,9 @@ label {
     font-size: 1.3rem;
 }
 
+
+/*common in all */
+
 .common {
     padding: 0.5%;
 }
@@ -120,6 +126,9 @@ hr {
     font-size: 0.1rem;
     border: 0.5px solid gray;
 }
+
+
+/*Clearing the default stle of the input type = date*/
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -156,20 +165,17 @@ button {
     color: white;
 }
 
-#right-button {
-    background-color: #EE351E;
-    color: white;
-}
-
-i {
-    color: white;
-}
-
-#left-button:hover,
-#right-button:hover {
+#left-button:hover {
     background-color: green;
     cursor: pointer;
     transition: 0.5s ease-in-out;
+}
+
+
+/*font-awesome icon color*/
+
+i {
+    color: white;
 }
 
 
