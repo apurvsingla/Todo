@@ -1,15 +1,21 @@
+//This code is structured as per the previous module of the course.
+
 const express = require('express');
 const path = require('path');
 const port = 3000;
 
-
+//accessing the database
 const db = require('./config/mongoose');
 const Note = require('./models/note')
 
+//creating express app
 const app = express();
 
+
+//set up the view directory
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
 //middleware
 app.use(express.urlencoded({
     extended: true
@@ -17,14 +23,8 @@ app.use(express.urlencoded({
 //access static files like html,css,js
 app.use(express.static('assets'));
 
-//creating our own middleware
-/*app.use(function(req, res, next) { //takes 3 arguments
-    req.myName = "Apurv"
-    console.log('1st middleware by:', req.myName);
-    next();
-})*/
 
-
+//controllers
 app.get('/', function(req, res) {
     Note.find({}, function(err, notes) {
         if (err) {
@@ -75,6 +75,8 @@ app.get('*', function(req, res) {
     res.render('404')
 })
 
+
+//port listen
 app.listen(port, function(err) {
     if (err) {
         console.log('Error!', err);
