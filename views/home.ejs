@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+
+<header>
+
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">
+            <%= title %>
+        </a>
+        <a href="#imp" class="extra">Important</a>
+        <a href="#about" class="extra">About</a>
+        <a href="javascript:void(0);" class="icon extra" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</header>
+
+
+<body>
+    <main>
+        <div>
+            <div id="heading">
+                <h2>
+                    TODO App
+                </h2>
+                <hr id="heading-rule">
+            </div>
+            <div id="main-content">
+
+
+
+                <form action="/create-note" method="post">
+                    <div id="desc" class="common">
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" name="description" id="description" placeholder="What do you need to do?">
+                    </div>
+                    <hr>
+                    <div class="common flex">
+
+                        <div class="cat">
+                            <label for="category">CATEGORY</label>
+                            <select name="category" id="category">
+                        <option value="please" disabled="disabled" selected>Please select</option>
+                        <option value="study">Study</option>
+                        <option value="market">Market</option>
+                        <option value="assignment">Work</option>
+                        <option value="call">Call</option>
+                    </select>
+                        </div>
+
+                        <hr>
+                        <div id="dueDate">
+                            <label for="due">DUE DATE</label>
+                            <input type="text/number" name="date" id="due" placeholder="dd/mm/yyyy">
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="button">
+                        <button type="submit" id="left-button" class="btn">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+                        <button type="submit" id="right-button" class="btn">
+                    <i class="fas fa-trash-alt"></i>
+                    Delete Tasks
+                </button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div>
+
+            </div>
+        </div>
+
+        <hr style="margin-top: 2%; opacity: 0.2; width: 96%;">
+        <% for (let i of notes_list){ %>
+            <ul>
+                <li>
+                    <div class="list row">
+                        <input type="checkbox" name="check" class="input">
+                        <span id="bold" class="col-3">
+                            <%= i.description %>
+                        </span>
+                        <span id="finaldate" class="col-6">
+                            <i class="far fa-calendar-alt"></i> 
+                            <%= i.date %>
+                        </span>
+                        <span id="c" class="col-1">
+                            <%= i.category %>
+                        </span>
+
+                    </div>
+                    <div class="delete">
+                        <a href="/delete-note/?id=<%= i._id %>">
+                            <i class="fas fa-trash-alt extraicon"></i>
+                        </a>
+                    </div>
+                    <hr class="bottom">
+                </li>
+            </ul>
+            <%}%>
+    </main>
+
+    <script src="/js/home.js"></script>
+</body>
+
+</html>
