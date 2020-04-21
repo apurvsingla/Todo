@@ -67,6 +67,14 @@ app.get('/delete-note', function(req, res) {
 
 });
 
+app.get('/about', function(req, res) {
+    res.render('about');
+})
+
+app.get('*', function(req, res) {
+    res.render('404')
+})
+
 app.listen(port, function(err) {
     if (err) {
         console.log('Error!', err);
