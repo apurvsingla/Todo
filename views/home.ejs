@@ -21,7 +21,7 @@
             <a href="/" class="active">
                 <%= title %>
             </a>
-            <a href="#imp" class="extra">Important</a>
+            <a href="/important" class="extra">Notes-List</a>
             <a href="/about" class="extra">About</a>
             <a href="javascript:void(0);" class="icon extra" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
@@ -39,9 +39,7 @@
                 </h2>
                 <hr id="heading-rule">
             </div>
-
             <!--Main Content for entering data-->
-
             <div id="main-content">
                 <form action="/create-note" method="post">
 
@@ -71,7 +69,10 @@
                         <!--creating Date-->
                         <div id="dueDate">
                             <label for="due">DUE DATE</label>
-                            <input type="date" name="date" id="due">
+                            <input type="text/number" name="date" id="due" placeholder="dd/mm/yyyy">
+                            <span id="remTime" onclick="change()">
+                              
+                            </span>
                         </div>
                     </div>
                     <hr>
@@ -83,10 +84,7 @@
                     </div>
                 </form>
             </div>
-
-
             <div>
-
             </div>
         </div>
 
@@ -101,9 +99,11 @@
                         <span id="bold" class="col-3">
                             <%= i.description %>
                         </span>
-                        <span id="finaldate" class="col-6">
+                        <span id="finaldate" class="col-6"> 
                             <i class="far fa-calendar-alt"></i> 
-                            <%= i.date %>
+                            <span id="dat">
+                        <%= i.date %></span>
+                        <span id="rem"></span>
                         </span>
                         <span id="c" class="col-1">
                             <%= i.category %>

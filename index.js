@@ -11,7 +11,8 @@ const Note = require('./models/note')
 //creating express app
 const app = express();
 
-
+let date_ob = new Date();
+date_ob.getDate();
 //set up the view directory
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -20,6 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({
     extended: true
 }));
+
 //access static files like html,css,js
 app.use(express.static('assets'));
 
@@ -70,6 +72,20 @@ app.get('/delete-note', function(req, res) {
 app.get('/about', function(req, res) {
     res.render('about');
 })
+
+app.get('/important', function(req, res) {
+    Note.find({}, function(err, notes) {
+        if (err) {
+            console.log('Error in Fetching');
+            return;
+        }
+        return res.render('important', {
+            title: 'Personal Notes',
+            notes_list: notes
+        });
+
+    });
+});
 
 app.get('*', function(req, res) {
     res.render('404')

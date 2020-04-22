@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+
+    <header>
+        <!-- navBar-->
+        <div class="topnav" id="myTopnav">
+            <a href="/" class="active">
+                <%= title %>
+            </a>
+            <a href="#imp" class="extra">Notes-List</a>
+            <a href="/about" class="extra">About</a>
+            <a href="javascript:void(0);" class="icon extra" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+    <br><br><br><br>
+    <% for (let i of notes_list){ %>
+        <ul>
+            <li>
+                <div class="list row">
+                    <input type="checkbox" name="check" class="input">
+                    <span id="bold" class="col-3">
+                        <%= i.description %>
+                    </span>
+                    <span id="finaldate" class="col-6">
+                        <i class="far fa-calendar-alt"></i> 
+                        <%= i.date %>
+                    </span>
+                    <span id="c" class="col-1">
+                        <%= i.category %>
+                    </span>
+
+                </div>
+                <div class="delete">
+                    <a href="/delete-note/?id=<%= i._id %>">
+                        <i class="fas fa-trash-alt extraicon"></i>
+                    </a>
+                </div>
+                <hr class="bottom">
+            </li>
+        </ul>
+        <%}%>
+
+
+            <script src="/js/home.js"></script>
+
+</body>
+
+</html>
