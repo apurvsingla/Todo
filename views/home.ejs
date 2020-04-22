@@ -76,6 +76,7 @@
                         </div>
                     </div>
                     <hr>
+                    <!-- button to submit form -->
                     <div id="button">
                         <button type="submit" id="left-button" class="btn">
                     <i class="fas fa-plus"></i> Add Task
@@ -91,20 +92,28 @@
 
         <!--Form Data-->
         <hr style="margin-top: 2%; opacity: 0.2; width: 96%;">
+        <!-- using ejs -->
         <% for (let i of notes_list){ %>
             <ul>
                 <li>
                     <div class="list row">
+                        <!-- taking description value from the form -->
                         <input type="checkbox" name="check" class="input">
                         <span id="bold" class="col-3">
                             <%= i.description %>
                         </span>
+
+                        <!-- taking date value from the form -->
                         <span id="finaldate" class="col-6"> 
                             <i class="far fa-calendar-alt"></i> 
                             <span id="dat">
                         <%= i.date %></span>
+
+                        <!-- providing remaining time -->
                         <span id="rem"></span>
                         </span>
+
+                        <!-- taking category value from the form -->
                         <span id="c" class="col-1">
                             <%= i.category %>
                         </span>
